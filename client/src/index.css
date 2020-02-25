@@ -1,0 +1,11 @@
+.search {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
