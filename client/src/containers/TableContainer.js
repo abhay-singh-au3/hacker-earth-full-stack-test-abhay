@@ -33,6 +33,7 @@ const TableContainer = () => {
 
     return (
         <Fragment>
+            <span className="badge badge-secondary">Page: {page}</span>
             {
                 members.length > 0
                     ? <Table data={members} />
