@@ -4,6 +4,7 @@ import Widget from '../components/Widget';
 
 const WidgetContainer = () => {
     const [data, setData] = useState({ amount: "", status: "" })
+    const [errors, setErrors] = useState(false)
     const [members, setMembers] = useState(null)
     const handleChange = e => {
         const { name, value } = e.target;
@@ -16,6 +17,10 @@ const WidgetContainer = () => {
                 if(res.status === 200) {
                     setMembers(res.data)
                 }
+            })
+            .catch(err => {
+                setErrors(true)
+                console.log(err)
             })
     }
     return (
@@ -54,6 +59,7 @@ const WidgetContainer = () => {
                 {
                     members ? <Widget data={members} /> : null
                 }
+                {errors && <p className="lead text-danger">Nothing found!</p>}
             </div>
         </Fragment>
     )
